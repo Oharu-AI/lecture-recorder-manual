@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LectureRecorderの利用者・AI操作担当者向け公式操作説明書。録画、予約、自動追従、保存確認、失敗時の対応を説明します。">
+  <meta name="robots" content="index,follow">
+  <title>LectureRecorder 操作説明書</title>
+  <style>
+    :root{color-scheme:light;--ink:#193047;--muted:#50677c;--blue:#1769bd;--pale:#eaf5ff;--line:#c9dce9;--glass:rgba(255,255,255,.8);--green:#178458;--amber:#ad6518;--shadow:0 16px 45px rgba(31,79,121,.11)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.8 -apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;color:var(--ink);background:linear-gradient(145deg,#e8f7ff 0%,#f7fbff 42%,#eef9f3 100%);background-attachment:fixed}a{color:var(--blue)}a:hover{text-decoration-thickness:2px}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #eea12e;outline-offset:3px}header.hero{max-width:1220px;margin:36px auto 18px;padding:44px 46px;border:1px solid #fff;border-radius:28px;background:linear-gradient(130deg,rgba(255,255,255,.92),rgba(219,241,255,.75));box-shadow:var(--shadow)}.eyebrow{color:var(--blue);font-weight:750;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}.hero h1{font-size:clamp(2rem,4vw,3.4rem);line-height:1.25;margin:.2em 0}.hero p{max-width:760px;margin:.5em 0}.meta{font-size:.88rem;color:var(--muted)}.layout{max-width:1220px;margin:auto;padding:0 12px 80px;display:grid;grid-template-columns:258px minmax(0,1fr);gap:22px}nav{align-self:start;position:sticky;top:14px;max-height:calc(100vh - 28px);overflow:auto;padding:20px;background:var(--glass);border:1px solid #fff;border-radius:22px;box-shadow:var(--shadow)}nav strong{display:block;margin-bottom:10px}nav a{display:block;padding:5px 8px;border-radius:8px;text-decoration:none;color:var(--ink);font-size:.92rem}nav a:hover{background:var(--pale);color:var(--blue)}#search{width:100%;padding:9px 11px;margin:8px 0 10px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff}main{min-width:0}section{scroll-margin-top:18px;margin-bottom:20px;padding:27px 34px;background:var(--glass);border:1px solid #fff;border-radius:22px;box-shadow:var(--shadow)}h2{font-size:1.52rem;line-height:1.4;margin:0 0 15px}h3{font-size:1.12rem;margin:24px 0 8px}p,ul,ol{margin:9px 0 16px}li{margin:4px 0}code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#edf3f8;border-radius:5px;padding:.1em .32em;font-size:.92em}kbd{border:1px solid #b8cad7;box-shadow:0 1px 0 #9eb4c4}table{border-collapse:collapse;width:100%;font-size:.93rem}th,td{text-align:left;vertical-align:top;padding:9px 11px;border-bottom:1px solid var(--line)}th{background:#e8f4fc}.table-wrap{overflow-x:auto}.callout{border-left:5px solid var(--blue);background:#eef7ff;padding:13px 17px;border-radius:0 10px 10px 0;margin:17px 0}.callout.warning{border-color:var(--amber);background:#fff5e7}.callout.success{border-color:var(--green);background:#ecf8f1}.steps{counter-reset:step;list-style:none;padding:0}.steps li{counter-increment:step;position:relative;padding:4px 0 12px 43px}.steps li:before{content:counter(step);position:absolute;left:0;top:5px;width:28px;height:28px;text-align:center;line-height:28px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700}.pill{display:inline-block;background:#dff4e9;color:#116746;border-radius:30px;padding:2px 10px;font-size:.82rem;font-weight:700}.pill.pending{background:#fff0db;color:#865110}.small{font-size:.89rem;color:var(--muted)}.ai-box{white-space:pre-wrap;overflow-wrap:anywhere;background:#102d49;color:#e7f6ff;padding:18px;border-radius:12px;font:13px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace}.actions{display:flex;flex-wrap:wrap;gap:9px}.actions button,.actions a{border:1px solid #91b8d2;background:white;border-radius:10px;padding:8px 12px;font:inherit;color:var(--blue);cursor:pointer;text-decoration:none}footer{max-width:1220px;margin:auto;padding:15px 25px 65px;color:var(--muted);font-size:.87rem}[hidden]{display:none!important}@media(max-width:800px){header.hero{margin:10px 10px 14px;padding:29px 22px}.layout{display:block}nav{position:static;max-height:none;margin-bottom:14px}section{padding:23px 20px}}@media print{body{background:white;font-size:11pt}header.hero,section,nav{box-shadow:none;border:1px solid #ccc;break-inside:avoid}nav,#search,.actions{display:none}.layout{display:block}a{color:inherit}}
+  </style>
+</head>
+<body>
+<header class="hero">
+  <div class="eyebrow">LectureRecorder / User & AI manual</div>
+  <h1>LectureRecorder 操作説明書</h1>
+  <p>講義動画をMacで画面録画し、保存結果を確認するための説明書です。初めて使う方の手順と、画面を操作するAIが守るべき判定条件を一つにまとめています。</p>
+  <p class="meta">文書版 2026-10-01 ｜ アプリの確認元: 2026-08-06時点のソース・実機記録 ｜ 対象: macOS 14以降の現行ソース</p>
+  <div class="actions"><a href="#quickstart">録画を始める</a><a href="#ai">AI向け手順</a><a href="#trouble">困ったとき</a><button type="button" onclick="window.print()">印刷・PDF保存</button></div>
+</header>
+<div class="layout">
+  <nav aria-label="目次"><strong>目次と検索</strong><label for="search" class="small">項目名を絞り込む</label><input id="search" type="search" placeholder="例: 音声、予約、AI"></nav>
+  <main id="content">
+    <section id="about" data-title="はじめに できること 対応環境">
+      <h2>1. このアプリでできること</h2>
+      <p>LectureRecorderはmacOSの画面収録機能を使い、選んだ画面やアプリをMP4に保存する講義録画アプリです。録画中はMacのスリープを防ぎ、終了後は録画ライブラリで再生・整理できます。動画配信サイトから元の動画ファイルをダウンロードする機能ではありません。</p>
+      <div class="table-wrap"><table><thead><tr><th>機能</th><th>使いどころ</th></tr></thead><tbody><tr><td>エリア録画</td><td>画面の一部分をドラッグで指定</td></tr><tr><td>全画面録画</td><td>選んだディスプレイ全体</td></tr><tr><td>ウインドウ録画</td><td>一つのブラウザやアプリのウインドウ</td></tr><tr><td>アプリ録画</td><td>アプリ全体。全画面化やポップアップへの追従が必要な講義</td></tr><tr><td>自動追従</td><td>再生開始を待って1本を録り、静止・無音で自動保存</td></tr><tr><td>タイマー・予約</td><td>指定時間の録画、指定時刻からの開始</td></tr></tbody></table></div>
+      <p class="small">保存形式はMP4。内部音声、必要に応じてマイクとカーソルを含められます。録画可能かどうかは講義サイト・表示環境にも左右されるため、最初に短い試し録画をしてください。</p>
+    </section>
+    <section id="install" data-title="インストール 初回設定 許可">
+      <h2>2. インストールと初回の許可</h2>
+      <ol class="steps"><li><code>LectureRecorder-0.1.pkg</code>をダブルクリックし、案内に従って「アプリケーション」へインストールします。</li><li>「アプリケーション」のLectureRecorderを開きます。自己署名版で開発元の警告が出た場合は、Finderでcontrolキーを押しながらアプリをクリックして「開く」を選びます。</li><li>macOSの「プライバシーとセキュリティ」で画面収録を許可し、アプリを終了して開き直します。</li><li>マイク録音を使う場合はマイクを許可します。SafariのWeb表示部分の自動検出を使う場合はアクセシビリティも許可します。</li><li>ブラウザを10秒録画し、MP4の映像・音・再生を確認します。</li></ol>
+      <div class="callout warning">初回許可の直後やmacOSを更新した後は、本番の長時間録画前に10秒の試し録画を行ってください。</div>
+    </section>
+    <section id="screen" data-title="画面構成 ボタン UI">
+      <h2>3. 画面の見方</h2>
+      <p>メイン画面は横長の小さなウインドウです。上段に4つの録画モードと赤いRECボタン、中段に録画対象と「一覧」、下段に自動追従・ライブラリ・最前面表示・環境設定、およびカーソル・内部音声・マイクの切り替えがあります。録画中はプレビュー、経過時間、一時停止、停止の操作に切り替わります。</p>
+      <p>対象を画面上で選ぶ際は青い点線の枠を確認します。右上のインジケータとメニューバーでも録画状態を確認できます。録画用の小画面自体は原則として録画映像から除外されます。</p>
+      <div class="callout">「ウインドウを最大化」と「講義プレイヤーを全画面表示」は別です。講義映像だけを残す場合は、プレイヤー自身の全画面ボタンを押してください。</div>
+    </section>
+    <section id="quickstart" data-title="基本の録画 手動録画 対象選択 保存確認">
+      <h2>4. 基本の録画手順</h2>
+      <ol class="steps"><li>講義ページを開き、再生できる状態にします。画面が黒い、動画が0:00から進まない場合は先に解決します。</li><li>「ウインドウ」または「アプリ」などのモードを選び、対象カードの「一覧」または画面上の青い点線から対象を選びます。</li><li>カーソル・内部音声・マイクの設定、保存先、空き容量を確認します。講義では通常、内部音声ON、マイクOFF、カーソルOFFです。</li><li>必要ならプレイヤー自体を全画面にし、ブラウザのタブ、通知、再生メニューが映らないことを目で確認します。</li><li>RECを押して録画開始。終わったら停止ボタンを押します。録画時間を指定した場合は満了時に自動停止します。</li><li>自動で開く録画ライブラリで、ファイルの先頭と数秒後を再生します。音声と映像があり、必要な講義部分が入っていることを確認して完了です。</li></ol>
+      <p class="small">対象が未選択なら録画は始まらず、画面に警告が出ます。対象が閉じられた場合、同名の候補が一つだけなら開始直前に取り直し、複数なら安全のため開始しません。</p>
+    </section>
+    <section id="autofollow" data-title="自動追従 連続講義 再生待ち 静止15秒">
+      <h2>5. 自動追従で講義を1本録る</h2>
+      <p>対象を選んで🔁を押すと、すぐ録画を開始して「再生待ち」になります。内部音声がONなら、2秒以上続く音を再生開始の目安とし、待ち時間の先頭を保存後に切り取ります。静止と無音が設定秒数続くと1本を保存し、その判定に使った末尾部分を切ります。</p>
+      <div class="callout warning"><strong>1本保存すると自動追従は終了します。</strong> 次の講義では🔁を再度押してください。再生待ち中に停止した場合、講義が始まっていない待機ファイルは破棄します。</div>
+      <p>静止秒数は環境設定で5〜3600秒に変更できます。講義の途中に長い無音・静止があると早く止まるため、本番前に動画に合った値を選びます。過去の実運用では15秒を使用しましたが、アプリの新規初期値は60秒です。</p>
+      <p>開始を見分けられない場合は待機を続けるか警告します。映像が届かない、開始できないなどの失敗は画面とログで確認してください。「録画中」の表示だけで成功とは判定しません。</p>
+    </section>
+    <section id="timer" data-title="タイマー 予約 終了後 スリープ シャットダウン">
+      <h2>6. タイマー・予約・録画後の動作</h2>
+      <p>メイン画面の「タイマー」で録画時間を時・分・秒ごとに指定できます。すべて0なら手動停止まで録画します。「予約する」と開始時刻を設定した場合、RECを押すと待機し、指定時刻に対象を取り直して録画を始めます。</p>
+      <p>「終了後」は「何もしない」「スリープ」「シャットダウン」から選びます。保存と必要な後処理が終わった後、画面のカウントダウン中にキャンセルできます。手動停止、アプリ終了、録画失敗では終了後の動作を実行しません。シャットダウンは確認画面があり、設定は次回起動へ持ち越されません。</p>
+      <div class="callout warning">実際のシャットダウンについて、2026-08-06時点の記録ではドライランのみ合格し、実シャットダウン試験は未実施です。初回の無人運転前に、在席して短時間の試験をしてください。</div>
+    </section>
+    <section id="settings" data-title="環境設定 保存先 ファイル名 画質 音声">
+      <h2>7. 環境設定と保存先</h2>
+      <div class="table-wrap"><table><thead><tr><th>項目</th><th>確認すること</th></tr></thead><tbody><tr><td>保存先</td><td>新規状態では<code>~/Movies/LectureRecorder/</code>。環境設定から変更可能。録画中に空きが3GBを下回ると安全停止。</td></tr><tr><td>ファイル名</td><td>初期の接頭辞は「講義録画」。末尾に日時が付き、同名でも上書きしない。利用中の設定は別の名前に変更されている場合があります。</td></tr><tr><td>画質</td><td>低容量、標準、高画質、省容量高画質。新規初期値は「標準」。講義の細かい文字には高画質系が向きます。</td></tr><tr><td>静止で自動停止</td><td>通常録画では新規初期値OFF、秒数は60秒。自動追従ではこの秒数を講義の終わり判定に使います。</td></tr><tr><td>カーソル・内部音声・マイク</td><td>新規初期値はOFF・ON・OFF。設定は次回起動にも残るため毎回確認します。</td></tr><tr><td>ショートカット</td><td>環境設定で変更可能。実際に表示されるキーを優先します。</td></tr></tbody></table></div>
+      <p class="small">「省容量高画質」はHEVCを使用します。容量は映像内容で変わり、画面の数値は目安です。外付けドライブを使う場合は、録画前に接続と空き容量を確認してください。</p>
+    </section>
+    <section id="library" data-title="録画ライブラリ 再生 編集 トリム 無音削除 結合 ゴミ箱">
+      <h2>8. 録画ライブラリで確認・整理する</h2>
+      <p>📁ボタンで「録画ライブラリ」を開けます。録画後も自動で開きます。左に再生、右に一覧があり、日付・名前・録画時間で並べ替えられます。名前変更、Finderで表示、ゴミ箱へ移動、トリム、無音削除、複数ファイルの結合ができます。</p>
+      <p>トリムは範囲を選んで別ファイルに保存します。無音削除や結合も別ファイルとして保存パネルで保存先を確定します。元の録画は、編集結果の確認が済むまで残してください。</p>
+      <div class="callout success"><strong>録画成功の判定:</strong> 一覧にファイルがあることに加え、先頭と数秒後を再生し、映像・音声・全画面表示・講義内容の連続性を確認します。手動シークで飛ばした録画はファイル検査に合格しても本番としては不合格です。</div>
+    </section>
+    <section id="shortcuts" data-title="ショートカット キーボード 操作">
+      <h2>9. キーボードショートカット</h2>
+      <p>新規状態のソース上の既定値は下表です。既存のMacでは利用者が変更した設定が優先されます。2026-08の運用記録では開始・停止・一時停止・対象選択も<kbd>⌃⌥</kbd>系へ変更されていました。<strong>操作前に環境設定の表示を確認し、記憶したキーを決め打ちしないでください。</strong></p>
+      <div class="table-wrap"><table><thead><tr><th>操作</th><th>新規状態の既定</th></tr></thead><tbody><tr><td>録画開始 / 停止</td><td><kbd>⌥⌘R</kbd>（同じキーで切替）</td></tr><tr><td>一時停止 / 再開</td><td><kbd>⌥⌘P</kbd></td></tr><tr><td>エリア / 全画面 / ウインドウ / アプリの対象選択</td><td><kbd>⌥⌘1</kbd> / <kbd>⌥⌘2</kbd> / <kbd>⌥⌘3</kbd> / <kbd>⌥⌘4</kbd></td></tr><tr><td>自動追従</td><td><kbd>⌃⌥A</kbd></td></tr><tr><td>録画ライブラリ</td><td><kbd>⌃⌥F</kbd></td></tr><tr><td>環境設定</td><td><kbd>⌃⌥C</kbd></td></tr><tr><td>最前面に表示</td><td><kbd>⌃⌥Q</kbd></td></tr></tbody></table></div>
+      <p class="small">設定画面で「変更」を押したら次のキーが登録されます。意図しない変更を防ぐため、操作をやめる際はEscで抜けてください。</p>
+    </section>
+    <section id="ai" data-title="AI 自動操作 エージェント 指示 チェックリスト">
+      <h2>10. 他のAIが操作するときの必須手順</h2>
+      <p>AIはこの節を操作契約として扱います。画面操作ができるAIでも、対象や状態を確認できなければ録画開始を保留します。座標クリックより、アプリに表示されたショートカットや明確なボタン名を使います。</p>
+      <h3>録画前ゲート（Chrome講義）</h3>
+      <ol class="steps"><li>講義ページを開き、動画が0:00から進むことを確認する。サイトの操作はここまでにする。</li><li>ブラウザをAIが制御している場合は、録画前にその制御を解放する。デバッグ開始のバナーや通知が消えたことを通常のMac画面で確認する。録画停止まで再接続しない。</li><li>講義プレイヤー自身を全画面表示にする。ウインドウの最大化だけで合格にしない。</li><li>カーソルを下部操作メニューから離す。シークバーなどが消えるまで待つ。</li><li>録画対象、内部音声ON、マイクOFF、カーソルOFF、静止秒数、保存先と空き容量を確認する。</li><li>「Chromeのタブ等がない」「デバッグ表示がない」「講義映像が画面全体」「下部操作メニューがない」の4条件を画面で確認してから録画を始める。</li></ol>
+      <div class="callout warning">4条件のどれか一つでも不明、黒画面、動画が止まっている場合はRECも🔁も押さない。講義を開き直し、確認を最初からやり直します。</div>
+      <h3>開始・終了後の確認</h3>
+      <ol><li>自動追従開始後は「再生待ち」から録画へ移ったこと、開始エラーが出ていないことを確認する。</li><li>1本保存したら自動追従は終了する。次の講義へ進む前にライブラリで保存ファイルを開く。</li><li>少なくとも先頭と数秒後の映像・音声・4条件を確認する。途中を手動で飛ばした場合は全尺録画として合格にしない。</li><li>失敗したときは対象、画面の警告、ログ、保存ファイルの有無を記録する。既存の正式ファイルを勝手に削除・改名・上書きしない。</li></ol>
+      <h3>AIへ渡す短い指示文</h3>
+      <div class="ai-box" id="ai-prompt">LectureRecorderで講義を録画する前に、この説明書の「10. 他のAIが操作するときの必須手順」を読んでください。アプリの実際の画面とショートカットを確認し、Chrome講義では録画前ゲート4条件をすべて確認してください。黒画面、0:00から進まない動画、デバッグバナー、シークバーがあれば開始しないでください。自動追従は1本保存で終了します。保存後は録画ライブラリで映像と音声を再生確認し、失敗や未確認を成功と報告しないでください。既存の正式録画を勝手に変更しないでください。</div>
+      <div class="actions"><button type="button" id="copy-ai">AI向け指示文をコピー</button></div>
+      <p class="small">ローカル操作用の詳細はリポジトリの<code>docs/COWORK_GUIDE.md</code>にあります。このHTMLだけをAIへ渡す場合も、上の手順で操作前後を判定できます。</p>
+    </section>
+    <section id="trouble" data-title="トラブル 故障 エラー 画面収録 音がない 黒画面">
+      <h2>11. 困ったとき</h2>
+      <div class="table-wrap"><table><thead><tr><th>症状</th><th>最初に確認すること</th></tr></thead><tbody><tr><td>対象が出ない・RECが始まらない</td><td>画面収録の許可、対象の再選択、同名ウインドウの有無。許可直後はアプリを再起動。</td></tr><tr><td>開始後に安全停止する</td><td>対象画面が表示されているか、黒画面でないか。映像が届かない場合は警告とログを確認。</td></tr><tr><td>音がない</td><td>内部音声ONか、元動画から音が出ているか、保存ファイルを再生したか。マイク音が必要なら別途マイクを許可。</td></tr><tr><td>短すぎる・途中で止まる</td><td>静止・無音の判定秒数と実際の講義内容を確認。手動シークがなかったかも確認。</td></tr><tr><td>ブラウザUIや通知が映る</td><td>講義プレイヤー自体の全画面表示と録画前ゲート4条件をやり直す。</td></tr><tr><td>保存されない・容量が小さい</td><td>保存先、3GB以上の空き容量、画面警告、ログ、ファイルの再生可否を確認。</td></tr></tbody></table></div>
+      <p>ログは<code>~/Library/Logs/LectureRecorder.log</code>です。エラーの時刻、対象名、画面の警告、保存先の状態を一緒に確認してください。非0バイトの不完全ファイルは復旧の可能性があるため自動削除しない設計です。</p>
+    </section>
+    <section id="limits" data-title="制限 未検証 状態">
+      <h2>12. 現在の制限と確認済み範囲</h2>
+      <ul><li><span class="pill">確認済み</span> 2時間録画、実講義の録画、音声付きMP4、録画ライブラリ、静止停止後の末尾カットについてテスト記録があります。</li><li><span class="pill pending">未確認</span> 実シャットダウンはドライランまで。4時間連続耐久と2台目ディスプレイの実機確認も、引き継ぎ記録では未完了です。</li><li>突然の電源断やMacのクラッシュでは、録画中のMP4を救えない場合があります。重要な講義ほど保存後の再生を確認してください。</li><li>このHTMLは操作説明書です。アプリにAI用APIやコマンドライン操作機能を追加するものではありません。AIは、利用できるMac画面操作手段とアプリの実際の表示を使います。</li></ul>
+    </section>
+    <section id="sources" data-title="根拠 更新履歴 ソース 出典">
+      <h2>13. この説明書の根拠と更新方法</h2>
+      <p>記述はこのプロジェクトの<code>LectureRecorder/Sources/LectureRecorder/</code>、<code>docs/COWORK_GUIDE.md</code>、<code>docs/RECORDING_GUIDE.md</code>、<code>docs/TEST_LOG.md</code>、<code>HANDOFF.md</code>を照合して作成しました。仕様予定より実装と検証記録を優先しています。MacWhisperのサポートサイトは記事型の構成のみ参考にし、文章とデザインは独自に作成しています。</p>
+      <p>アプリを更新したら、画面の項目名、ショートカット、初期値、自動追従の終了条件、未確認事項を見直してください。公開サイトへ掲載する際は、この<code>manual.html</code>をアップロードし、リンク先を利用者とAIに共有します。</p>
+      <p class="small">最終編集: 2026-10-01。個人用ソフトの実装記録に基づく説明書であり、MacWhisperとは別製品です。</p>
+    </section>
+  </main>
+</div>
+<footer>LectureRecorder 操作説明書 · 単一HTMLファイル · JavaScriptなしでも全本文を閲覧可能</footer>
+<script>
+  const nav=document.querySelector('nav');
+  const sections=[...document.querySelectorAll('main section')];
+  const search=document.querySelector('#search');
+  for(const section of sections){const a=document.createElement('a');a.href='#'+section.id;a.textContent=section.querySelector('h2').textContent;nav.append(a)}
+  search.addEventListener('input',()=>{const q=search.value.trim().toLocaleLowerCase('ja');for(const section of sections){const hit=!q||(section.dataset.title+' '+section.textContent).toLocaleLowerCase('ja').includes(q);section.hidden=!hit;nav.querySelector('a[href="#'+section.id+'"]').hidden=!hit}});
+  document.querySelector('#copy-ai').addEventListener('click',async e=>{try{await navigator.clipboard.writeText(document.querySelector('#ai-prompt').textContent.trim());e.currentTarget.textContent='コピーしました'}catch{e.currentTarget.textContent='コピーできませんでした。本文を選択してください'}});
+</script>
+</body>
+</html>
